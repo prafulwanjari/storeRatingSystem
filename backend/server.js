@@ -13,7 +13,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: 'https://storeratingproject.netlify.app', // frontend URL
+    origin: 'https://storeratingproject.netlify.app/admin', // frontend URL
     credentials: true, // allow cookies / auth headers
   })
 );

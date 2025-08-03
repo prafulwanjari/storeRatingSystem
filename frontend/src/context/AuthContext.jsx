@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
 // ✅ Set Axios Base URL (Uses .env in production or fallback to localhost:5000)
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'https://storeratingproject.netlify.app/login';
 
 const AuthContext = createContext();
 
