@@ -11,6 +11,8 @@ const ratingRoutes = require('./controller/ratings');
 const app = express();
 
 
+console.log('🚀 Initializing Express Server...');
+
 app.use(
   cors({
     origin: 'https://storeratingproject.netlify.app', // frontend URL
