@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../../utills/axiosInstance";
 import { useEffect, useState } from "react";
 
 const UsersList = () => {
@@ -23,7 +23,7 @@ const UsersList = () => {
     setErrorMsg("");
     try {
       const params = new URLSearchParams({ ...filters, sortBy, sortOrder });
-      const response = await axios.get(`/api/users?${params.toString()}`);
+      const response = await api.get(`/users?${params.toString()}`);
       setUsers(response.data);
     } catch {
       setErrorMsg("Failed to load users. Please try again.");

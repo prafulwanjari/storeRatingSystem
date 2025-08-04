@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import axios from 'axios';
+import api from '../../utills/axiosInstance';
 import { FaBars, FaTimes, FaUser, FaKey, FaSignOutAlt, FaSearch, FaStar } from 'react-icons/fa';
 import StoreCard from '../StoreCard';
 
@@ -28,7 +28,7 @@ const UserDashboard = () => {
     setStoresLoading(true);
     try {
       const params = new URLSearchParams({ search, sortBy, sortOrder });
-      const response = await axios.get(`/api/stores?${params}`);
+      const response = await api.get(`/stores?${params}`);
       setStores(response.data);
     } catch (error) {
       console.error('Error fetching stores:', error);
@@ -48,7 +48,7 @@ const UserDashboard = () => {
 
   const submitRating = async (storeId, rating) => {
     try {
-      await axios.post('/api/ratings', { storeId, rating });
+      await api.post('/ratings', { storeId, rating });
       fetchStores();
     } catch (error) {
       console.error('Error submitting rating:', error);
@@ -77,7 +77,7 @@ const UserDashboard = () => {
           </div>
           <nav className="flex-1 overflow-y-auto p-4 space-y-1" role="menu" aria-orientation="vertical">
             <Link
-              to="/user-dashboard"
+              to="/dashboard"
               className="block px-3 py-2 rounded-md text-base font-medium text-indigo-700 bg-indigo-100"
               aria-current="page"
             >

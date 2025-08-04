@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import axios from 'axios';
+import api from '../../utills/axiosInstance';
 import { FaBars, FaTimes,FaSignOutAlt, FaKey } from 'react-icons/fa';
 import Card from '../Card';
 import RatingDistributionChart from '../RatingDistributionChart'
@@ -25,7 +25,7 @@ const StoreOwnerDashboard = () => {
   async function fetchStoreData() {
     setLoading(true);
     try {
-      const response = await axios.get('/api/ratings/store');
+      const response = await api.get('/ratings/store');
       setStoreData(response.data);
     } catch (err) {
       console.error('Error fetching store data:', err);

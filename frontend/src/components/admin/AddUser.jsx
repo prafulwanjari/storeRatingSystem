@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../../utills/axiosInstance";
 import { useState } from "react";
 
 const AddUser = () => {
@@ -19,7 +19,7 @@ const AddUser = () => {
     setError('');
     setSuccess('');
     try {
-      await axios.post('/api/users', formData);
+      await api.post('/users', formData);
       setSuccess('User added successfully');
       setFormData({ name: '', email: '', password: '', address: '', role: 'user' });
     } catch (error) {

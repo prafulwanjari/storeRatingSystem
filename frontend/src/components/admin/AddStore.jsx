@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "../../utills/axiosInstance"; // centralized axios instance
+import axios from '../../utills/axiosInstance';
 
 const AddStore = () => {
   const inputClass =

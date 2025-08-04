@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../../utills/axiosInstance";
 import { useEffect, useState } from "react";
 
 const StoresList = () => {
@@ -18,7 +18,8 @@ const StoresList = () => {
     setErrorMsg("");
     try {
       const params = new URLSearchParams({ ...filters, sortBy, sortOrder });
-      const response = await axios.get(`/api/stores/admin?${params.toString()}`);
+      // const response = await axios.get(`/stores/admin?${params.toString()}`);
+      const response = await api.get('/stores/admin', { params });
       setStores(response.data);
     } catch {
       setErrorMsg("Failed to load stores. Please try again.");
