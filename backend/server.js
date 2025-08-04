@@ -11,7 +11,7 @@ const ratingRoutes = require('./controller/ratings');
 const app = express();
 
 
-console.log('🚀 Initializing Express Server...');
+
 
 app.use(
   cors({
@@ -24,9 +24,9 @@ app.use(express.json());
 
 
 
-// ✅ Health check route — add this block
+//  Health check route — add this block
 app.get('/', (req, res) => {
-  res.send('✅ API is running');
+  res.send(' API is running');
 });
 
 // Database connection (modern way)
