@@ -22,6 +22,13 @@ app.use(
 
 app.use(express.json());
 
+
+
+// ✅ Health check route — add this block
+app.get('/', (req, res) => {
+  res.send('✅ API is running');
+});
+
 // Database connection (modern way)
 (async () => {
   try {
